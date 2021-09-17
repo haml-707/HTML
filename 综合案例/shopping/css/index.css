@@ -1,0 +1,173 @@
+.main {
+    margin-top: 10px;
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+}
+.focus {
+    position: relative;
+    float:left;
+    /* overflow: hidden; */
+    width: 721px;
+    height: 455px;
+    background-color: slateblue;
+}
+.focus ul {
+    position: absolute;
+    width: 600%;
+}
+.focus ol {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    z-index: 999;
+}
+.focus ol li {
+    float: left;
+    margin-right: 6px;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius:50% ;
+}
+.focus ul li {
+    /* position: absolute; */
+    float: left;
+}
+.focus .left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -20px;
+    width: 30px;
+    height: 40px;
+    font-family: "icomoon";
+    line-height: 40px;
+    text-align: center;
+    z-index: 99;
+    background: rgba(0 ,0,0,0.1);
+    border-radius: 0 20px 20px 0;
+}
+.focus .right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -20px;
+    width: 30px;
+    height: 40px;
+    font-family: "icomoon";
+    line-height: 40px;
+    text-align: center;
+    z-index: 999;
+    background: rgba(0 ,0,0,0.9);
+    border-radius: 20px 0 0 20px;
+}
+.focus .left:hover{
+    background: rgba(0 ,0,250,0.7);
+}
+.focus .right:hover {
+    background: rgba(0 ,0,250,0.7);
+}
+.focus img {
+    width: 721px;
+    height: 455px;
+}
+.newsflash {
+    float: right;
+    width: 250px;
+    height: 455px;
+}
+.news {
+    height: 165px;
+    border: 1px solid #e4e4e4;
+}
+.lifeservice {
+    overflow: hidden;
+    height: 209px;
+    border: 1px solid #e4e4e4;
+    border-top: none;
+}
+.bargain {
+    margin-top: 10px;
+    height: 70px;
+}
+.bargain img {
+    width: 250px;
+    height: 100%;
+}
+.news_hd  {
+    padding: 0 10px;
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px dotted gray;
+}
+.news_hd h5 {
+    float: left;
+    font-size: 14px;
+    text-align: center;
+}
+.news_hd .more {
+    float: right;
+}
+.news_hd .more::after {
+    font-family: "icomoon";
+    content: "\e947";
+}
+.news_bd {
+    height: 24px;
+    line-height: 24px;
+    padding: 5px 15px 0;
+}
+.news_bd ul li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.lifeservice ul {
+    width: 260px;
+}
+.lifeservice ul li {
+    float: left;
+    text-align: center;
+    width: 63px;
+    height: 71px;
+    border-bottom: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+}
+.lifeservice ul li i {
+    display: inline-block;
+    margin-top: 10px;
+    width: 24px;
+    height: 28px;
+    background-color: pink;
+    background: url(https://m.360buyimg.com/babel/jfs/t1/47544/23/372/3943/5cd4f24eE92fbcf79/4b49b55af25a7bdf.png) no-repeat;
+    background-size: 100% 100%;
+}
+.recom {
+    margin-top: 10px;
+    height: 163px;
+    background-color: pink;
+}
+/* 家用电器模块 */
+.box_hd {
+    margin-top: 30px;
+    height: 30px;
+    border-bottom:2px solid red ;
+}
+.box_hd h4 {
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    color: red;
+}
+.box_hd li {
+    float: right;
+    line-height: 30px;
+}
+.box_hd li a {
+    padding:0 10px;
+}
+.box_bd {
+    height: 361px;
+    background-color: salmon;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="start">-
+    <input type="text" id="end">
+    <button class="go">搜索</button>
+    <input type="text" class="see">
+    <button class="goto">搜索</button>
+    <table border="1" cellpadding="10" cellspacing="0" align="center">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>品牌</td>
+                <td>价格</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var arr = [{
+            id: 1,
+            uname: '华为',
+            pires: 3000
+        },
+        {
+            id: 2,
+            uname: '小米',
+            pires: 1999
+        }, {
+            id: 3,
+            uname: '魅族',
+            pires: 999
+        }]
+        // console.log(arr);
+        var start = document.querySelector('#start');
+        var end = document.querySelector('#end');
+        var go = document.querySelector('.go');
+        var tbody = document.querySelector('tbody');
+        var see = document.querySelector('.see');
+        var goto = document.querySelector('.goto');
+        setDate(arr);
+        function setDate(newarr) {
+            tbody.innerHTML = '';
+            newarr.forEach(function (value) {
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>' + value.id + '</td><td>' + value.uname + '</td><td>' + value.pires + '</td>';
+                tbody.appendChild(tr)
+            })
+        }
+        go.addEventListener('click', function () {
+            var newarr = arr.filter(function (value) {
+                return value.pires > start.value && value.pires < end.value
+            })
+            setDate(newarr)
+        })
+        goto.addEventListener('click', function () {
+            var arr1 = []
+            arr.some(function (value) {
+                if (value.uname == see.value) {
+                    arr1.push(value);
+                    return true;
+                }
+            })
+            setDate(arr1)
+        })
+    </script>
+</body>
+
+</html>

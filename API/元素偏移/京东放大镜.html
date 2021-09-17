@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            margin: 100px 100px;
+            width: 450px;
+            height: 450px;
+        }
+        .mask {
+            position: absolute;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            cursor: move;
+            background: rgba(0,0,0,0.3);
+        }
+        .img {
+            position: relative;
+            display: none;
+            position: absolute;
+            overflow: hidden;
+            top: 100px;
+            left: 600px;
+            width: 500px;
+            height: 500px;
+        }
+        .img img {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="https://img12.360buyimg.com/n1/s450x450_jfs/t1/122921/15/7559/117920/5f16cef8Ef766b6b0/106d6618c601fefb.jpg" alt="">
+        <div class="mask"></div>
+    </div>
+    <div class="img">
+        <img src="https://img12.360buyimg.com/n1/s450x450_jfs/t1/122921/15/7559/117920/5f16cef8Ef766b6b0/106d6618c601fefb.jpg" alt="" class="big">
+    </div>
+    <script>
+        var box= document.querySelector('.box');
+        var mask = document.querySelector('.mask');
+        var img = document.querySelector('.img');
+        var bigimg=document.querySelector('.big');
+        box.addEventListener('mouseover',function() {
+            mask.style.display = 'block';
+            img.style.display = 'block';
+        })
+        box.addEventListener('mouseout',function() {
+            mask.style.display = 'none';
+            img.style.display = 'none';
+        })
+     
+        box.addEventListener('mousemove',function(e) {
+            var x = e.pageX -box.offsetLeft;
+            var y = e.pageY -box.offsetTop;
+            var maskX = x-mask.offsetWidth/2;
+            var maskY = y-mask.offsetHeight/2;
+            if (maskX<=0) {
+                maskX=0
+            } else  if (maskX>=box.offsetWidth-mask.offsetWidth) {
+                maskX=box.offsetWidth-mask.offsetWidth
+            }
+            if (maskY<=0) {
+                maskY=0;
+            } else if (maskY>=box.offsetHeight-mask.offsetHeight) {
+                maskY=box.offsetHeight-mask.offsetHeight
+            }
+            mask.style.left = maskX + 'px';
+            mask.style.top = maskY+ 'px';
+            var maskmax =box.offsetWidth-mask.offsetWidth;
+            var imgmax = bigimg.offsetWidth-img.offsetWidth;
+            var bigX = imgmax*maskX/maskmax;
+            var bigY = imgmax*maskY/maskmax;
+            bigimg.style.left =-bigX+'px' 
+            bigimg.style.top =-bigY+'px' 
+        })
+    </script>
+</body>
+</html>

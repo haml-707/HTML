@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 300px;
+            margin: 100px auto;
+            border-bottom: 1px solid gray;
+        }
+        .box img {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 24px;
+        }
+        .box input {
+            width: 270px;
+            border: 0;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="https://pic.netbian.com/uploads/allimg/200824/195335-1598270015c349.jpg" alt="">
+        <input type="password">
+    </div>
+    <script>
+        var btn = document.querySelector('img');
+        var type = document.querySelector('input')
+        var flag = 0 ;
+        btn.onclick = function () {
+            if (flag==0) {
+            type.type = 'text' ;
+            btn.src= "https://pic.netbian.com/uploads/allimg/200824/235151-159828431131a7.jpg";
+            flag=1;
+            } else {
+            type.type = 'password';
+            btn.src="https://pic.netbian.com/uploads/allimg/200824/195335-1598270015c349.jpg";
+            flag=0;
+            }
+        }
+    </script>
+</body>
+</html>

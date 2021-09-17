@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            margin: 0 auto;
+            width: 608px;
+            height: 608px;
+        }
+
+        .food {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .head {
+            position: absolute;
+            left: 320px;
+            top: 352px;
+            width: 32px;
+            height: 32px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="head"></div>
+        <img src="img/ground.png" alt="">
+        <img src="img/food.png" alt="" class="food">
+    </div>
+
+    <script>
+        // 获取类
+        var food = document.querySelector('.food');
+        var head = document.querySelector('.head')
+        var chong;
+        document.addEventListener('keydown', direction);
+        // clearInterval(go)
+        var snc = [];
+        snc[0] = {
+            x: head.offsetLeft,
+            y: head.offsetTop
+        }
+        // console.log(snc[0]);
+        function direction(event) {
+            console.log(event);
+            var key = event.keyCode;
+            console.log(key);
+            clearInterval(chong)
+
+            chong = setInterval(function () {
+                if (key == 37) {
+                    console.log(food.style.left);
+                    head.style.left = head.offsetLeft - 32 + 'px';
+                } else if (key == 38) {
+                    head.style.top = head.offsetTop - 32 + 'px';
+                } else if (key == 40) {
+                    head.style.top = head.offsetTop + 32 + 'px';
+                } else if (key == 39) {
+                    head.style.left = head.offsetLeft + 32 + 'px';
+                }
+                if (head.offsetLeft == 0 || head.offsetLeft == 576 || head.offsetTop == 64 || head.offsetTop == 576) {
+                    clearInterval(chong)
+                    // alert('game over')
+                    // location.reload();
+                }
+                if (head.style.left == food.style.left && head.style.top == food.style.top) {
+                    food.style.left = Math.floor(Math.random() * 17 + 1) * 32 + 'px',
+                        food.style.top = Math.floor(Math.random() * 15 + 3) * 32 + 'px'
+                } else {
+                    snc.pop()//删除并返回数组最后一个元素
+                }
+                var newHead = {
+                    x: head.offsetLeft,
+                    y: head.offsetTop
+                }
+                snc.unshift(newHead)
+            }, 500)
+        }
+        // 随机生成食物
+        food.style.left = Math.floor(Math.random() * 17 + 1) * 32 + 'px',
+            food.style.top = Math.floor(Math.random() * 15 + 3) * 32 + 'px'
+    </script>
+</body>
+
+</html>

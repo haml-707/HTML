@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .active {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="Src" alt="">
+        <img v-bind:src="Src" alt="" 
+        v-bind:class="{active:isShou}" @click='isactive'>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data: {
+                Src:'https://123p3.sogoucdn.com/imgu/2018/04/20180404144123_595.png',
+                isShou:false
+            },
+            methods: {
+                isactive:function() {
+                    this.isShou=!this.isShou
+                }
+            },
+        })
+    </script>
+</body>
+</html>

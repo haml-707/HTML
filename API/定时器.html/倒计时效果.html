@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <span class="h"></span> 
+    <span class="m"></span>
+    <span class="s"></span>
+    <script>
+        var h = document.querySelector('.h');
+        var m = document.querySelector('.m');
+        var s = document.querySelector('.s');
+        var inputTime = + new Date('2021.3.10 00:00:00');
+        countDown();
+        setInterval(countDown,1000)
+        function countDown () {
+            var nowTime = + new Date();
+            var times = (inputTime-nowTime)/1000;
+            var hour = parseInt(times/60/60%24);
+            hour = hour>10 ? hour : '0' + hour ;
+            h.innerHTML = hour ;
+            var min = parseInt(times/60%60);
+            min = min>10 ? min : '0' + min ;
+            m.innerHTML = min;
+            var ss = parseInt (times%60);
+            ss = ss>10 ? ss : '0' + ss ;
+            s.innerHTML = ss;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box  {
+            display: flex;
+            width: 1100px;
+            height: 250px;
+            margin: 150px auto;
+        }
+        .box ul {
+            display: flex;
+        }
+        .box li {
+            height: 200px;
+            padding: 10px 0;
+            list-style: none;
+            background-color: wheat;
+            flex:1;
+        }
+        body {
+            background-image: url(https://pic.netbian.com/uploads/allimg/181012/204821-153934850136f8.jpg);
+            background-size: 100%;
+        }
+        .box  img {
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="https://pic.netbian.com/uploads/allimg/181030/182045-15408948453ec4.jpg" alt=""></li>
+            <li><img src="https://pic.netbian.com/uploads/allimg/181018/103412-153983005212c4.jpg" alt=""></li>
+            <li><img src="https://pic.netbian.com/uploads/allimg/181012/204821-153934850136f8.jpg" alt=""></li>
+            <li><img src="https://pic.netbian.com/uploads/allimg/181004/164141-1538642501174c.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        var imgs = document.querySelectorAll('img')
+        for (var i = 0; i<imgs.length;i++) {
+        imgs[i].onclick = function() {
+            document.body.style.backgroundImage = 'url('+this.src+')';
+        }
+        }
+    </script>
+</body>
+</html>

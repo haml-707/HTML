@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .promo {
+            width: 520px;
+            height: 280px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .promo img {
+            width: 100%;
+            height: 100%;
+        }
+        .left,
+        .right {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            background: rgba(0,0,0,0.7);
+            text-align: center;
+            line-height: 30px;
+            color: #ffffff;
+        }
+        .left {
+            left: 0;
+            border-radius: 0 15px 15px 0;
+        }
+        .right {
+            right: 0;
+            border-radius: 15px 0 0 15px;
+        }
+        .box {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 6px 6px 6px 6px;
+        }
+        .box li {
+            list-style: none;
+            float: left;
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="promo">
+        <img src="https://img10.360buyimg.com/babel/s590x470_jfs/t1/160497/12/5142/150854/601361fdE99377b14/4e6aaec06b41b6b3.jpg.webp" alt="">
+        <div class="right">
+            &gt
+        </div>
+        <div class="left">
+            &lt
+        </div>
+        <ul class="box">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>

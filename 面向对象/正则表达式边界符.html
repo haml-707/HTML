@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="111" id="inp"><span>请输入用户名</span>
+    <script>
+        var inp = document.querySelector('#inp')
+        var sp = document.querySelector('span');
+        var rg = /^[a-zA-Z0-9]{6,12}$/;
+        inp.onblur = function () {
+            if (rg.test(this.value)) {
+                sp.innerHTML = '输入正确';
+            } else {
+                sp.innerHTML = '输入错误';
+            }
+        }
+        function qu(sp)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            display: flex;
+        }
+        li {
+            list-style: none;
+            margin: 10px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul li a {
+            display: inline-block;
+            text-decoration: none;
+            margin: 10px;
+        }
+        ul li a:hover {
+            background-color: rgba(0,0,0,0.3);
+        }
+        ul ul {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="box">
+        <li>
+            <a href="">微博</a>
+        <ul>
+            <li>我的</li>
+            <li>我的</li>
+            <li>我的</li>
+        </ul>
+        </li>
+        <li>
+            <a href="">微博</a>
+        <ul>
+            <li>我的</li>
+            <li>我的</li>
+            <li>我的</li>
+        </ul>
+        </li>
+        <li>
+            <a href="">微博</a>
+        <ul>
+            <li>我的</li>
+            <li>我的</li>
+            <li>我的</li>
+        </ul>
+        </li>
+    </ul>
+    <script>
+        document.write('<div>111</div>')
+        var nav = document.querySelector('.box');
+        var lis = nav.children;
+        console.log(lis);
+        for (var i = 0;i<lis.length;i++) {
+            lis[i].onmouseover = function () {
+                this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function () {
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

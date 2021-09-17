@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @font-face {
+        font-family: 'icomoon';
+        src:  url('fonts/icomoon.eot?qyjwxq');
+        src:  url('fonts/icomoon.eot?qyjwxq#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?qyjwxq') format('truetype'),
+        url('fonts/icomoon.woff?qyjwxq') format('woff'),
+        url('fonts/icomoon.svg?qyjwxq#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+        }
+        .left {
+            float: left;
+        }
+        .left ul {
+            /* display: flex; */
+            /* flex-direction: column; */
+            width: 100px;
+            height: 440px;
+        }
+        .left li {
+            list-style: none;
+            padding-left: 15px;
+            height: 21px;
+            /* flex:1; */
+            line-height: 21px;
+            white-space: nowrap;
+            /* 强制不换行 */
+            overflow: hidden;
+            /* 溢出部分隐藏 */
+            text-overflow: ellipsis; 
+        }
+        .left li:hover {
+            background-color: rgba(0,0,0,0.3);
+        }
+        .left li b {
+            color: steelblue;
+            line-height: 21px;
+            cursor:pointer;
+            white-space: nowrap;
+            /* 强制不换行 */
+            overflow: hidden;
+            /* 溢出部分隐藏 */
+            text-overflow: ellipsis; 
+            font-weight: 400;
+        }
+        input{  
+            background:none;  
+            outline:none;  
+            border:none;
+        }
+        input::after {
+            content: "\e916";
+            font-family: 'icomoon';
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #app {
+            border-left: 1px solid beige;
+            border-right: 1px solid beige;
+            border-bottom: linear-gradient(to right,rgb(231, 230, 176), rgb(121, 121, 50)50%,rgb(211, 211, 84));
+            width: 700px;
+            height: 570px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        .head {
+            width: 700px;
+            height: 60px;
+            background-color: rgb(38, 158, 206);
+        }
+        .head .search {
+            float: right;
+            margin:15px 20px ;
+            padding-left: 10px;
+            font-size: 16px;
+            width: 250px;
+            height: 30px;
+            border-radius: 30px;
+            background-color: rgb(195, 204, 212);
+        }
+        .head span {
+            display: inline-block;
+            margin: 10px 12px;
+            font-family:fantasy ;
+            color: snow;
+        }
+        audio {
+            float: right;
+            width: 700px;
+            height: 70px;
+        }
+        .center {
+            float: left;
+            margin-left: 15px;
+            margin-top: 30px;
+            width: 350px;
+            height: 350px;
+            background-color: thistle;
+            background: url() no-repeat;
+            background-size: 340px 400px;
+            border-radius:175px;
+            overflow: hidden;
+        }
+        body {
+            background: linear-gradient(to right,rgb(231, 230, 176), rgb(121, 121, 50)50%,rgb(211, 211, 84));
+        }
+        .center img {
+            /* border: radius 175px; */
+            width: 100%;
+            height: 100%;
+        }
+        .right {
+            float: right;
+            width: 220px;
+            height: 440px;
+            /* background-color: pink; */
+        }
+        .box {
+            width: 220px;
+            height: 150px;
+        }
+        .user {
+            float: left;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            overflow: hidden;
+
+            /* background-color: purple; */
+        }
+        .comment {
+            float: right;
+            width: 160px;
+            /* height: 150px; */
+            /* white-space: nowrap; */
+            /* 强制不换行 */
+            /* overflow: hidden; */
+            /* 溢出部分隐藏 */
+            /* text-overflow: ellipsis;  */
+            /* background-color: powderblue; */
+        }
+        .user img {
+            width: 100%;
+            height: 100%;
+            /* overflow: hidden; */
+        }
+        .box {
+            border-bottom: 1px solid rgba(0,0,0,0.3);
+        }
+#app {
+  --borderWidth: 3px;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+/* #app:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+} */
+/* @keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} */
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="head">
+            <span style="font-size: 24px;">老王听歌专属系统</span>
+            <!-- <div class="search"></div> -->
+            <input type="text" class="search" @keyup.enter='getMsg' v-model='keyword' value="    ">
+        </div>
+        <div class="body">
+            <div class="left">
+                <ul>
+                    <!-- <li v-for='item in music'>
+                        {{item.name}}
+                    </li> -->
+                    <li v-for='itme in music'><b @click='playMusic(itme.id)'>{{itme.name}}</b></li>
+                </ul>
+            </div>
+            <div class="center">
+                <img :src="face" alt="">
+            </div>
+            <div class="right">
+                <h2 style="margin-left: 20px;color: red;"></h2>
+                <div class="box" v-for='(it,index) in com'>
+                    <div class="user">
+                        <img :src="it.user.avatarUrl" alt="">
+                    </div>
+                    <div class="comment" style="font-size: 16px;">
+                        <h4 class="username" style="color: rgb(45, 138, 45);">{{it.user.nickname}}</h4>
+                        {{it.content}}
+                    </div>
+                </div>
+            </div>
+            <audio :src="musicUrl" autoplay='autoplay' loop controls> </audio>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        console.log(axios);
+        var app = new Vue ({
+            el:'#app',
+            data:{
+                music:[],
+                keyword:'',
+                musicUrl:'',
+                face:'',
+                com:{},
+            },
+            methods: {
+                getMsg:function(){
+                    var that = this;
+                    axios.get('https://autumnfish.cn/search?keywords='+this.keyword)
+                    .then(function(responce) {
+                        // console.log(responce);
+                        that.music=responce.data.result.songs;
+                        // console.log(responce.data.result.songs);
+                    })
+                },
+                playMusic:function(ID) {
+                    var that =this
+                    axios.get('https://autumnfish.cn/song/url?id='+ID)
+                    .then(function(response){
+                        // console.log(response);
+                        that.musicUrl=response.data.data[0].url;
+                        // console.log(response.data.data[0].url);
+                    }),
+                    axios.get('https://autumnfish.cn/song/detail?ids='+ID)
+                    .then(function(response){
+                        console.log(response);
+                        that.face=response.data.songs[0].al.picUrl;
+                        console.log(that.face);
+                    }),
+                    axios.get('https://autumnfish.cn/comment/hot?type=0&id='+ID)
+                    .then(function(response) {
+                        console.log(response);
+                        that.com=response.data.hotComments;
+                        console.log(that.com);
+                        // console.log(that.com);
+                    })
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 1100px;
+            height: 1000px;
+            background-color: red;
+        }
+        .change {
+            width: 1100px;
+            height: 1000px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="first"><img src="https://pic.netbian.com/uploads/allimg/181117/222020-15424644204721.jpg" alt=""></div>
+    <script>
+        var flga = 0;
+        var img = document.querySelector('div')
+        img.onclick = function () {
+            if (flga==0) {
+            img.className = 'change first'
+            flga=1;
+            } else  {
+                img.className= 'first'
+                flga=0;
+            }
+        }
+    </script>
+</body>
+</html>

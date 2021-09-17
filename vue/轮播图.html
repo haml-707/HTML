@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            position: relative;
+            width: 700px;
+            height: 500px;
+            margin: 50px auto;
+            /* background-color: rosybrown; */
+        }
+
+        .left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 20px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.3)
+        }
+
+        .right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 20px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.3)
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="left" @click='prve' v-show='index>0'></div>
+        <img v-bind:src="imgs[index]" alt="">
+        <div class="right" @click='next' v-show='index<imgs.length-1'></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgs: [
+                    'https://pic.netbian.com/uploads/allimg/210318/135851-1616047131c38d.jpg',
+                    'https://pic.netbian.com/uploads/allimg/200425/135417-1587794057ab38.jpg',
+                    'https://pic.netbian.com/uploads/allimg/210319/213619-1616160979c9b2.jpg',
+                    'https://pic.netbian.com/uploads/allimg/210319/210721-161615924101a7.jpg',
+                    'https://pic.netbian.com/uploads/allimg/210314/224434-1615733074e20d.jpg'
+                ],
+                index: 0
+            },
+            methods: {
+                prve: function () {
+                    this.index--;
+                },
+                next: function () {
+                    this.index++;
+                    console.log(this);
+                    // console.log(new Vue());
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

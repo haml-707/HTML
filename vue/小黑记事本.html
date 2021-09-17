@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            width: 200px;
+        }
+        ul li  span{
+            display: none;
+            float: right;
+            background:rgba(0,0,0,0.3);
+        }
+        ul li:hover span {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text"  @keyup.enter='add' v-model='message'>
+        <ul>
+            <li v-for='(itme,index) in messages'>{{index+1}}{{itme}} <span @click='remove(index)'>*</span></li>
+            
+            <div @click='removeall' v-show='messages.length>0'>
+                清屏{{messages.length}}
+            </div>
+        </ul>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                messages:[],
+                message:'好好学习天天向上'
+            },
+            methods: {
+                add:function() {
+                    this.messages.push(this.message)
+                },
+                remove:function(index) {
+                    console.log(index);
+                    this.messages.splice(index,1)
+                },
+                removeall :function(index) {
+                    this.messages=[]
+                }
+                
+            },
+        })
+    </script>
+</body>
+</html>

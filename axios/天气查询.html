@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?qyjwxq');
+            src: url('fonts/icomoon.eot?qyjwxq#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?qyjwxq') format('truetype'),
+                url('fonts/icomoon.woff?qyjwxq') format('woff'),
+                url('fonts/icomoon.svg?qyjwxq#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #app {
+            width: 700px;
+            height: 500px;
+            margin: 100px auto;
+            /* border:1px solid lawngreen; */
+        }
+
+        h1 {
+            margin-left: 200px;
+            margin-bottom: 40px;
+            /* margin: 20px 100px; */
+            align-items: center;
+            letter-spacing: 8px;
+            color: green;
+        }
+
+        input {
+            float: left;
+            /* margin-left: 20px; */
+            width: 500px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 40px;
+            border: 1px solid skyblue;
+            border-radius: 4px;
+        }
+
+        button {
+            float: left;
+            font-size: 20px;
+            color: #fff;
+            width: 60px;
+            height: 40px;
+            background-color: slateblue;
+        }
+
+        .secher {
+            width: 560px;
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        .nav ul {
+            display: flex;
+        }
+
+        .nav ul li {
+            flex: 1;
+            margin-top: 40px;
+            text-align: center;
+            height: 150px;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>老王查天气系统</h1>
+        <div class="secher">
+            <input type="text" @keyup.enter='sech' v-model='city'> <button @click='sech'>搜索</button>
+        </div>
+        <div class="nav">
+            <ul>
+                <li v-for='itme in weahther'>
+                    <h2 style="color: coral;">{{itme.type}}</h2><br><br>
+                    <p style="font-size: 14px; color: lawngreen;">{{itme.low}}~{{itme.high}}</p><br>
+                    <h4 style="font-weight: 400; color: red;">{{itme.date}}</h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: '天气情况',
+                weahther: [],
+                city: ''
+            },
+            methods: {
+                sech: function () {
+                    var that = this
+                    axios.get('http://wthrcdn.etouch.cn/weather_mini?city=' + this.city)
+                        .then(function (response) {
+                            // console.log(response.data.data.forecast);
+                            that.weahther = response.data.data.forecast,
+                                console.log(that.weahther);
+                        })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

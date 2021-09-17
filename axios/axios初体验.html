@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https//aumumnfish.cn/api/joke/list">着呢</a>
+    <input type="button" name="" id="get" value="请求按钮">
+    <input type="button" name="" id="post" value="post按钮">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        document.querySelector('#get').addEventListener('click',function() {
+            axios.get('https://autumnfish.cn/api/joke/list?num=3')
+            .then(function(response){
+                console.log(response);
+            })
+        })
+    </script>
+</body>
+</html>

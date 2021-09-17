@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        button {
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button class="wo500">点我500</button>
+    <button class="wo800">点我800</button>
+    <script>
+        var btn500 = document.querySelector('.wo500');
+        var btn800 = document.querySelector('.wo800');
+        var div =document.querySelector('div');
+        function fn(obj,target,func) {
+            clearInterval(obj.timer)
+            obj.timer = setInterval(function(){
+            var step = (target-obj.offsetLeft)/20;
+            step = step>0 ? Math.ceil(step) :Math.floor(step)
+            obj.style.left = obj.offsetLeft+step+'px';
+            if (obj.offsetLeft==target) {
+            clearInterval(obj.timer)
+            if (func) {
+                func()
+            }
+            }},15);
+        }
+        
+        btn500.addEventListener('click',function() {
+            fn(div,500)
+        })
+        btn800.addEventListener('click',function() {
+            fn(div,800,function() {
+                alert('你以到达800位置')
+            })
+        })
+        
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!--
+ * @author: Lan_
+ * @create: 2021-06-05 14:49 PM
+ * @license: MIT
+ * @lastAuthor: Lan_
+ * @lastEditTime: 2021-06-15 19:07 PM
+ * @desc: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" class="td" value="1">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" value="2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        
+    <script>
+        var th = document.querySelector('thead').querySelector('.td')
+        var tb = document.querySelector('tbody').querySelectorAll('input');
+        console.log(tb.length);
+        th.onclick= function () {
+            console.log(th.checked);
+            for (var i = 0; i<tb.length; i++) {
+            tb[i].checked = th.checked;
+            }
+        }
+        for (var i = 0; i<tb.length;i++) {
+        tb[i].onclick=function() {
+            var flag = true;
+            for(var j = 0; j<tb.length;j++) {
+                if (!tb[j].checked) {
+                    flag=false;
+                    break;
+                }
+            }
+            th.checked=flag;
+        }
+        }
+        
+    </script>
+</body>
+</html>

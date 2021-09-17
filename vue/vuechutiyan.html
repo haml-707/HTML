@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">{{mes}}
+        {{ sz.nub }} {{  sz.shool }}
+        {{cumpe[2]}}
+        <img v-show='true' src="https://123p3.sogoucdn.com/imgu/2018/04/20180404144123_595.png" alt=""  >
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const app= new Vue ({
+            el: '#app',
+            data: {
+                mes:'你好李银河！',
+                sz : {
+                    shool:'高级中学',
+                    nub:2000,
+                },
+                cumpe: ['007','911','nice']
+            }
+        })
+    </script>
+</body>
+</html>
