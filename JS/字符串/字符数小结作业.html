@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = 'abaasdffggghhjjkkgfddsssss3444343'
+        console.log( str.length);
+        console.log(str.substr(0,1));
+        // var c = prompt('请输入你需要查找的内容')
+        // if (str.indexOf(c)!=-1) {
+        //     alert('你查找的内容存在')
+        // } else {
+        //     alert('你查找的内容不存在')
+        // }
+        while (str.indexOf('g')!=-1) {
+            str=str.replace('g','22')
+        }
+        console.log(str);
+        var o = {};
+        for(var i = 0 ; i<str.length; i++) {
+            var ch = str.charAt(i);
+            if (o[ch]) {
+                o[ch]++;
+            } else {
+                o[ch]=1;
+            }
+        }
+        console.log(o);
+    </script>
+<body>
+    
+</body>
+</html>

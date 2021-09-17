@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var i = 1;
+        function getRandom (min,max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+        }
+        var random = getRandom(1,50)
+        while (i<=10) {
+        var sz = prompt('你来猜猜看')
+        var sy=10-i;
+        if (i==10) {
+            alert('你的机会已用完')
+            break;
+        }
+        
+         else if (sz>random) {
+            alert('猜大了，还剩次'+sy+'机会哦')
+        } else if (sz<random) {
+            alert('猜小了，还剩次'+sy+'机会哦')
+        } else if (sz==random) {
+        alert('回答正确，游戏结束')
+        break;
+        }
+        
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

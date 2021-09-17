@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = '我我 我  我 我 我 我草泥马的，，我 的我我卧槽草泥马，草泥马'
+        var index = str.indexOf('草泥马')
+        console.log(index);
+        while (str.indexOf('草泥马') !== -1) {
+            str = str.replace('草泥马', '***')
+        }
+        console.log(str);
+        // console.log(indexOf('草泥马'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
