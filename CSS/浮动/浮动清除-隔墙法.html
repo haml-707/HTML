@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box .ermao {
+            width: 300px;
+            height: 300px;
+            float: left;
+            background-color: indigo;
+           
+        }
+        .box .damao {
+            width: 400px;
+            height: 200px;
+            float: left;
+            background-color: grey;
+        }
+        
+           
+       
+        .footer {
+            height: 200px;
+            background-color: lawngreen;
+        }
+        .box {
+            /* overflow: hidden; */
+        }
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box clearfix">
+        <div class="damao">damao</div>
+        <div class="ermao">ermao</div>
+        <div class="clear"></div>
+        
+    </div>
+    <div class="footer"></div>
+</body>
+</html>
